@@ -1,0 +1,126 @@
+@import "tailwindcss";
+
+:root {
+  /* Peach + Dusty Rose + Off-white pastel luxury palette */
+  --background: #FFF9F5;
+  --foreground: #2C1E1F;
+  --card: #FFFFFF;
+  --card-foreground: #2C1E1F;
+  --popover: #FFFFFF;
+  --popover-foreground: #2C1E1F;
+
+  --primary: #C48B8B;          /* dusty rose */
+  --primary-hover: #B07A7A;
+  --primary-foreground: #FFFFFF;
+
+  --secondary: #F5C6AA;        /* soft peach */
+  --secondary-hover: #E8B498;
+  --secondary-foreground: #2C1E1F;
+
+  --accent: #E8A87C;           /* deeper peach accent */
+  --accent-foreground: #2C1E1F;
+
+  --muted: #F5E6E0;
+  --muted-foreground: #7A6560;
+
+  --border: #EDE0D8;
+  --input: #EDE0D8;
+  --ring: #C48B8B;
+
+  --destructive: #D66A6A;
+  --destructive-foreground: #FFFFFF;
+
+  --radius: 0.5rem;
+
+  /* Luxury spacing feel */
+  --header-height: 4.5rem;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-playfair);
+
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
+  --radius-xl: calc(var(--radius) + 6px);
+}
+
+@layer base {
+  * {
+    @apply border-[var(--border)];
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-inter), system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-playfair), Georgia, serif;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+}
+
+/* Custom utilities */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .container-luxury {
+    @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .skeleton {
+    @apply animate-pulse rounded-md bg-[var(--muted)];
+  }
+
+  /* Smooth image reveal */
+  .img-reveal {
+    @apply transition-opacity duration-500 ease-out;
+  }
+}
+
+/* Focus visible for accessibility */
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Hide scrollbar for carousels while keeping functionality */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
